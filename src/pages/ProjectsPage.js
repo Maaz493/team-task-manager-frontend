@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8080/api';
+const API_URL = 'team-task-manager-production-46bc.up.railway.app';
 const getHeaders = () => ({ Authorization: `Bearer ${localStorage.getItem('token')}` });
 
 function ProjectsPage({ user, onNavigate }) {
@@ -10,11 +10,11 @@ function ProjectsPage({ user, onNavigate }) {
   const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState({ name: '', description: '' });
 
-  useEffect(() => {
+useEffect(() => {
     fetchProjects();
     if (user.role === 'ADMIN') fetchUsers();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
   const fetchProjects = () => axios.get(`${API_URL}/projects`, { headers: getHeaders() }).then(r => setProjects(r.data));
   const fetchUsers = () => axios.get(`${API_URL}/projects/users/all`, { headers: getHeaders() }).then(r => setAllUsers(r.data));
 

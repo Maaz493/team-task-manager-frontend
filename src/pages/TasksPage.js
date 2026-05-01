@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8080/api';
+const API_URL = 'team-task-manager-production-46bc.up.railway.app';
 const getHeaders = () => ({ Authorization: `Bearer ${localStorage.getItem('token')}` });
 
 function TasksPage({ user, project, onNavigate }) {
@@ -10,11 +10,11 @@ function TasksPage({ user, project, onNavigate }) {
   const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState({ title:'', description:'', assignedToId:'', priority:'MEDIUM', dueDate:'' });
 
-  useEffect(() => {
+useEffect(() => {
     fetchTasks();
     fetchMembers();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
   const fetchTasks = () => axios.get(`${API_URL}/tasks/project/${project.id}`, { headers: getHeaders() }).then(r => setTasks(r.data));
 
   const fetchMembers = async () => {
