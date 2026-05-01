@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8080/api';
+const API_URL = 'https://team-task-manager-production-46bc.up.railway.app/api';
 
 function LoginPage({ onLogin }) {
   const [isSignup, setIsSignup] = useState(false);

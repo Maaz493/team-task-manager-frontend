@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const API_URL = 'team-task-manager-production-46bc.up.railway.app';
+const API_URL = 'https://team-task-manager-production-46bc.up.railway.app/api';
 const getHeaders = () => ({ Authorization: `Bearer ${localStorage.getItem('token')}` });
 
 function TasksPage({ user, project, onNavigate }) {
